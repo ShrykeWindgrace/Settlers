@@ -25,7 +25,9 @@ class Score:
             transaction.change_debts(self.debts)
 
     def dump(self, file_handler):
-
+        file_handler.write(self.title+'\n')
         json.dump(self.participants, file_handler)
+        file_handler.write('\n')
         for tr in self.transactions:
             tr.dump(file_handler)
+            file_handler.write('\n')
